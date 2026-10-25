@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Secure Cloud Storage - Mini Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Secure Cloud Storage</h1>
+        <p>Block-based encrypted file storage, hosted on a CDN</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>About the project</h2>
+            <p>This mini-project splits a file into fixed-size blocks, encrypts each block with AES (Fernet), and lets a
+                user download the file in encrypted form. This documentation site is hosted on cloud storage and
+                delivered through a CDN over HTTPS.</p>
+        </section>
+
+        <section>
+            <h2>How it works</h2>
+            <ol>
+                <li>The user uploads a file through the Flask web app.</li>
+                <li>The file is divided into 1 MB blocks.</li>
+                <li>Each block is encrypted with Fernet (AES-128 and HMAC-SHA256).</li>
+                <li>The encrypted blocks are stored and offered as a download.</li>
+                <li>With the key, the blocks are decrypted and merged back into the original file.</li>
+                <li>A SHA-256 hash comparison confirms the rebuilt file is identical.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Results</h2>
+            <figure>
+                <img src="images/shot1.png" alt="Terminal output showing 5 blocks and matching hash">
+                <figcaption>A 5 MB file split into 5 blocks, with matching SHA-256 hashes.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/shot2.png" alt="Web app showing upload and download">
+                <figcaption>The Flask web app with upload and encrypted download.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/shot3.png" alt="Encrypted block opened in Notepad">
+                <figcaption>An encrypted block opened in Notepad: unreadable without the key.</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Technologies used</h2>
+            <ul>
+                <li>Python 3, Flask</li>
+                <li>cryptography (Fernet)</li>
+                <li>Cloud object storage and a CDN for hosting</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Cloud Computing Mini-Project | Kirti Tambe | Nutan Maharashtra Institute of Engineering and Technology</p>
+    </footer>
+</body>
+
+</html>
